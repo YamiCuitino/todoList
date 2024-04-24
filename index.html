@@ -1,22 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organizador de Tareas</title>
+  <title>Todo List</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <p>Agrega una tarea nueva:</p>
-  <label for ="tarea">Nombre:</label>
-  <input type="text" id="tarea" name="tarea" placeholder="Escribe tu tarea aquí">
-  <button type="button" onclick="ObtenerTarea()">Agregar</button>
-  <ul id="lista_tareas"></ul>
+  <div class="container mt-5  ">
+
+        <div class="card">
+          <div class="card-header ">
+            Agrega una tarea nueva
+          </div>
+          <div class="card-body">
+            <label for="tarea">Nombre:</label>
+            <input type="text" id="tarea" name="tarea" class="form-control" placeholder="Escribe tu tarea aquí">
+            <button type="button" class="boton btn mt-2" onclick="ObtenerTarea()">Agregar</button>
+          </div>
+        </div>
+  </div>
+
+<div class="container mt-3">
+  <div class="row">
+     <div class="columna p-3 col-md-6" id="lista_tareas_incompletas">
+      <!-- tareas incompletas -->
+    </div>  
+    
+    <div class="columna p-3 col-md-6" id="lista_tareas_completas">
+      <!-- tareas completas -->
+    </div>
+
+  </div>
+</div>
 
 
-<script src="Todo-List.js"></script>
-  
+
+
+
+  <script src="Todo-List.js"></script>
 </body>
 
 </html>
+

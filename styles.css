@@ -1,0 +1,62 @@
+/* Importar Bootstrap (si no lo tienes ya) */
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+body {
+  background-image: url('img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #f5f5f5; }
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #f19488; 
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  background-color: #fff;
+}
+
+.card-body p {
+  color: black;
+}
+
+.boton{
+  background-color: #f19488;
+ }
+
+.columna{
+  background-color: #a4c4d4;
+  border-radius: 5px;
+}
+
+li {
+    padding: 5px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color:#f19488;
+    list-style: none;
+}
+
+.checkbox-label {
+  margin-bottom: 0;
+}
+
+.btn-eliminar {
+  background-color: #dc3545; /* Rojo */
+  border-color: #dc3545;
+  color: #fff;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333; /* Rojo oscuro */
+  border-color: #bd2130;
+}
