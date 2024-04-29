@@ -21,6 +21,16 @@ let tareas = [
   { nombre: 'Crear contenido para redes sociales', estado: 'completo', activo: true }
 ];
 
+function cargarTareasDesdeLocalStorage() {
+  const tareasGuardadas = localStorage.getItem('tareas');
+  if (tareasGuardadas) {
+      tareas = JSON.parse(tareasGuardadas);
+  }
+}
+
+function guardarTareasEnLocalStorage() {
+  localStorage.setItem('tareas', JSON.stringify(tareas));
+}
 function mostrarTareas() {
   let listaTareasCompletas = document.getElementById('lista_tareas_completas');
   let listaTareasIncompletas = document.getElementById('lista_tareas_incompletas');
@@ -29,34 +39,44 @@ function mostrarTareas() {
   listaTareasIncompletas.innerHTML = '';
 
   tareas.forEach(tarea => {
-      let listItem = document.createElement('li');
-      listItem.textContent = tarea.nombre;
+    let listItem = document.createElement('li');
+    listItem.className = 'task-item';
 
-      let botonEliminar = document.createElement('button');
-      botonEliminar.textContent = 'Eliminar';
-      botonEliminar.addEventListener('click', function() {
-          eliminarTarea(tarea.nombre);
-      });
-      listItem.appendChild(botonEliminar);
+    let nombreTarea = document.createElement('span');
+    nombreTarea.textContent = tarea.nombre;
 
-      let checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.checked = tarea.estado === 'completo';
-      checkbox.addEventListener('change', function() {
-          tarea.estado = checkbox.checked ? 'completo' : 'incompleto';
-          mostrarTareas(); // Mostrar las tareas nuevamente después de actualizar el estado
-      });
-      listItem.appendChild(checkbox);
+    let checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'checkbox';
+    checkbox.checked = tarea.estado === 'completo';
+    checkbox.addEventListener('change', function() {
+        tarea.estado = checkbox.checked ? 'completo' : 'incompleto';
+        mostrarTareas(); // Mostrar las tareas nuevamente después de actualizar el estado
+    });
 
-      if (tarea.estado === 'completo') {
-          listaTareasCompletas.appendChild(listItem);
-      } else {
-          listaTareasIncompletas.appendChild(listItem);
-      }
-  });
+    let botonEliminar = document.createElement('button');
+    botonEliminar.textContent = 'Eliminar Tarea';
+    botonEliminar.className = 'botonEliminar btn btn-sm';
+    botonEliminar.addEventListener('click', function() {
+        eliminarTarea(tarea.nombre);
+    });
+
+    listItem.appendChild(checkbox);
+    listItem.appendChild(nombreTarea);
+    listItem.appendChild(document.createElement('br')); // Agregamos un salto de línea
+    listItem.appendChild(botonEliminar);
+
+    if (tarea.estado === 'completo') {
+        listaTareasCompletas.appendChild(listItem);
+    } else {
+        listaTareasIncompletas.appendChild(listItem);
+    }
+});
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
+  cargarTareasDesdeLocalStorage();
   mostrarTareas();
 });
 
@@ -68,6 +88,7 @@ function agregarTarea(nombreTarea) {
       activo: true 
   };
   tareas.push(nuevaTarea);
+  guardarTareasEnLocalStorage()
   mostrarTareas();
 }
 
@@ -79,6 +100,8 @@ function ObtenerTarea() {
 
 function eliminarTarea(nombreTarea) {
   tareas = tareas.filter(tarea => tarea.nombre !== nombreTarea);
+
+  guardarTareasEnLocalStorage(),
   mostrarTareas(); 
 }
 

@@ -36,26 +36,28 @@ body {
 .columna{
   background-color: #a4c4d4;
   border-radius: 5px;
+  border: 1px solid #f19488;
 }
 
 li {
-    padding: 5px;
-    margin: 3px;
+    padding: 15px;
+    margin: 13px;
     border-radius: 5px;
     background-color:#f19488;
     list-style: none;
+    text-align: center;
+    font-size: large;
 }
 
-.checkbox-label {
-  margin-bottom: 0;
+
+.botonEliminar{
+  background-color: #a4c4d4;
+
 }
 
-.btn-eliminar {
-  background-color: #dc3545; /* Rojo */
-  border-color: #dc3545;
-  color: #fff;
+.checkbox{
+  padding: 10px;
 }
-
 .btn-eliminar:hover {
   background-color: #c82333; /* Rojo oscuro */
   border-color: #bd2130;

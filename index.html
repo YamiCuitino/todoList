@@ -18,26 +18,27 @@
           <div class="card-body">
             <label for="tarea">Nombre:</label>
             <input type="text" id="tarea" name="tarea" class="form-control" placeholder="Escribe tu tarea aquí">
-            <button type="button" class="boton btn mt-2" onclick="ObtenerTarea()">Agregar</button>
+            <button type="button" class="boton btn-block btn mt-2" onclick="ObtenerTarea()">Agregar</button>
           </div>
         </div>
   </div>
 
-<div class="container mt-3">
-  <div class="row">
-     <div class="columna p-3 col-md-6" id="lista_tareas_incompletas">
-      <!-- tareas incompletas -->
-    </div>  
-    
-    <div class="columna p-3 col-md-6" id="lista_tareas_completas">
-      <!-- tareas completas -->
+  <div class="container mt-3">
+    <div class="row">
+       <div class="columna col-md-5">
+        <h3 class="text-center p-2">Tareas por hacer:</h3> 
+        <ul id="lista_tareas_incompletas" class="list-unstyled"></ul>
+      </div>  
+
+      <div class="col-md-2"></div>
+
+      <div class="columna col-md-5">
+        <h3 class="text-center p-2">Tareas completadas:</h3> 
+        <ul id="lista_tareas_completas" class="list-unstyled"></ul>
+      </div>
+  
     </div>
-
   </div>
-</div>
-
-
-
 
 
   <script src="Todo-List.js"></script>
